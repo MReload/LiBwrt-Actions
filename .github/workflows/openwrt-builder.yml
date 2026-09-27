@@ -4,6 +4,9 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   REPO_URL: https://github.com/LiBwrt/LibWrt
   REPO_BRANCH: 25.12-nss
@@ -89,6 +92,15 @@ jobs:
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
+
+    - name: Verify target device
+      if: (!cancelled())
+      run: |
+        echo "DEVICE_NAME=${{ env.DEVICE_NAME }}"
+        [ "${{ env.DEVICE_NAME }}" = "_zn_m2" ] || {
+          echo "ERROR: built wrong device, expected zn_m2 - check .config MULTI_PROFILE/DEVICE settings" >&2
+          exit 1
+        }
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
