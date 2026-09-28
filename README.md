@@ -2,8 +2,6 @@
 
 基于 [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt) 模板的个人 OpenWrt 云编译项目,使用 GitHub Actions 自动编译 [LiBwrt/LibWrt](https://github.com/LiBwrt/LibWrt) 固件。
 
-> 本仓库由 [LibWrt-ZNM2](https://github.com/MReload/LibWrt-ZNM2) 与 LiBwrt-Actions 合并而来:工作流与 NoWiFi 核心配置取自本仓库,软件包方案取自 ZNM2 精简版。
-
 ## 固件信息
 
 | 项目 | 内容 |
